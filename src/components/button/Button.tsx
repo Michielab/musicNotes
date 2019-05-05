@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 /* Import MaterialUI components*/
 import {
@@ -19,8 +19,6 @@ const styles = (theme: Theme) =>
       color: theme.palette.primary.contrastText,
       border: `${theme.palette.primary.contrastText} solid ${theme.spacing.unit / 8}px`,
       borderRadius: `${theme.spacing.unit * 3.5}%`,
-      // height: '50px',
-      // width: '50px',
       webkitBoxShadow: '4px 7px 10px 3px rgba(0,0,0,0.75)',
       mozBoxShadow: '4px 7px 10px 3px rgba(0,0,0,0.75)',
       boxShadow: '4px 7px 10px 3px rgba(0,0,0,0.75)',
@@ -37,40 +35,23 @@ const styles = (theme: Theme) =>
         }
       }
     },
-    rippleCorrect: {
-      color: 'green !important'
-    },
-    rippleWrong: {
-      color: 'red !important'
-    }
   });
 
 interface ButtonProps extends WithStyles {
-  currentNote: { name: string };
-  buttonDisabled: boolean;
+  children?: ReactNode;
   buttonProps?: ButtonPropsMaterialUi
 }
 
 function Button(props: ButtonProps) {
-  const { classes, currentNote, buttonDisabled } = props;
+  const { classes, buttonProps } = props;
 
   return (
     <ButtonMaterialUi
-      disabled={buttonDisabled}
-      draggable={true}
       classes={{ root: classes.button }}
-      // TouchRippleProps={{
-      //   className:
-      //     currentNote.name === note.name
-      //       ? classes.rippleCorrect
-      //       : classes.rippleWrong
-      // }}
-      // onClick={() => check(note.name)}
       centerRipple={true}
-      // key={index}
+      {...buttonProps}
     >
-      {/* {note.name} */}
-      hi
+      {props.children}
     </ButtonMaterialUi>
   );
 }
