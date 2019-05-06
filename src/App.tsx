@@ -9,7 +9,9 @@ function App() {
   return (
     <Container type="root" paperProps={{square: true, elevation: 0}}>
           <Container type="columnFlex" paperProps={{square: true, elevation: 0}}>
-      
+        <Container type="stave">
+
+        </Container>
       </Container>
     </Container>
   );
