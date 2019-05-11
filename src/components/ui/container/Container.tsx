@@ -26,7 +26,7 @@ const styles = (theme: Theme) =>
       justifyContent: 'center'
     },
     stave: {
-        backgroundColor: theme.palette.primary.light,
+        backgroundColor: 'white',
         height: '40%',
         width: '50%',
         minWidth: '320px',
