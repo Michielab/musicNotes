@@ -1,78 +1,86 @@
-import Clow from 'sounds/fKey/C-low.wav';
-import Dlow from 'sounds/fKey/D-low.wav';
-import Elow from 'sounds/fKey/E-low.wav';
-import Flow from 'sounds/fKey/F-low.wav';
-import Glow from 'sounds/fKey/G-low.wav';
-import Alow from 'sounds/fKey/A-low.wav';
-import Blow from 'sounds/fKey/B-low.wav';
+// import Clow from 'sounds/fKey/';
+// import Dlow from 'sounds/fKey/D-low.wav';
+// import Elow from 'sounds/fKey/E-low.wav';
+// import Flow from 'sounds/fKey/F-low.wav';
+// import Glow from 'sounds/fKey/G-low.wav';
+// import Alow from 'sounds/fKey/A-low.wav';
+// import Blow from 'sounds/fKey/B-low.wav';
 
-import Chigh from 'sounds/fKey/C-high.wav';
-import Dhigh from 'sounds/fKey/D-high.wav';
-import Ehigh from 'sounds/fKey/E-high.wav';
-import Fhigh from 'sounds/fKey/F-high.wav';
-import Ghigh from 'sounds/fKey/G-high.wav';
-import Ahigh from 'sounds/fKey/A-high.wav';
+// import Chigh from 'sounds/fKey/C-high.wav';
+// import Dhigh from 'sounds/fKey/D-high.wav';
+// import Ehigh from 'sounds/fKey/E-high.wav';
+// import Fhigh from 'sounds/fKey/F-high.wav';
+// import Ghigh from 'sounds/fKey/G-high.wav';
+// import Ahigh from 'sounds/fKey/A-high.wav';
 
 export const startPointX: number = 160;
 
 export interface NoteInterface {
-  notes: { name: string; sound: string; line?: boolean }[]
+  // fKeySimple: { name: string; sound: string; line: boolean }[];
+  [key: string]: { name: string; sound: string; line: boolean }[];
 }
 
-const notes: {
-  fKeySimple: { name: string; sound: string; line?: boolean }[];
-  [key: string]: { name: string; sound: string; line?: boolean }[];
-} = {
+const notes: NoteInterface = {
   fKeySimple: [
     {
       name: 'C',
-      sound: Clow,
+      sound: 'Clow',
       line: true
     },
     {
       name: 'D',
-      sound: Dlow
+      sound: 'Dlow',
+      line: false
     },
     {
       name: 'E',
-      sound: Elow
+      sound: 'Elow',
+      line: false
     },
     {
       name: 'F',
-      sound: Flow
+      sound: 'Flow',
+      line: false
     },
     {
       name: 'G',
-      sound: Glow
+      sound: 'Glow',
+      line: false
     },
     {
       name: 'A',
-      sound: Alow
+      sound: 'Alow',
+      line: false
     },
-    { name: 'B', sound: Blow },
+    { name: 'B', sound: 'Blow', line: false },
     {
       name: 'C',
-      sound: Chigh
+      sound: 'Chigh',
+      line: false
     },
     {
       name: 'D',
-      sound: Dhigh
+      sound: 'Dhigh',
+      line: false
     },
     {
       name: 'E',
-      sound: Ehigh
+      sound: 'Ehigh',
+      line: false
     },
     {
       name: 'F',
-      sound: Fhigh
+      sound: 'Fhigh',
+      line: false
     },
     {
       name: 'G',
-      sound: Ghigh
+      sound: 'Ghigh',
+      line: false
     },
     {
       name: 'A',
-      sound: Ahigh,
+      sound: 'Ahigh',
       line: true
     }
   ]

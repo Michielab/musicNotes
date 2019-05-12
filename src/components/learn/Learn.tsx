@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 /* Helper function to get notes  */
-import { getNotes } from 'helpers/Notes';
+import { getNotes, NoteInterface } from 'helpers/Notes';
 
 /* Import components  */
 import Note from 'components/notes/Note';
@@ -16,16 +16,27 @@ interface LearnProps {
 }
 
 function Learn(props: LearnProps) {
+  const [note, setNote] = useState({positionX: 0, positionY: 0, line: false})
   const { middle, divider, width } = props;
+  let number = 0;
   let notes = getNotes(middle, divider, width);
-  let number = UseNextNote(notes);
-  let note = notes[number];
+ 
+  function getNote(){
+    number = UseNextNote(notes);
+    setNote(number)
+  }
+
+  useEffect(()=> {
+    getNote()
+  }, [])
+  // let note = notes[number];
+  console.log(note)
   return (
     <Note
       cx={note.positionX}
       cy={note.positionY}
       line={note.line}
-      onClick={()=>{}}
+      onClick={() => {}}
     />
   );
 }

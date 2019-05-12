@@ -4,7 +4,8 @@ import React from 'react';
 import Container from './components/ui/container/Container';
 import RootRef from '@material-ui/core/RootRef';
 import Stave from 'components/stave/Stave';
-import UseResize from 'hooks/UseResize';
+import UseResize from 'components/hooks/UseResize';
+
 import './App.css';
 
 function App() {

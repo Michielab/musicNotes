@@ -4,6 +4,7 @@ import React from 'react';
 import NoteLine from 'components/notes/NoteLine';
 import StaveUI from 'components/ui/stave/StaveUI';
 import Gclef from 'components/ui/gClef/Gclef';
+import Learn from 'components/learn/Learn';
 
 function Stave(props: any) {
   const { height, width } = props;
@@ -26,12 +27,15 @@ function Stave(props: any) {
   ];
 
   return (
-    <StaveUI>
-      <Gclef height={height}/>
-      {vertices.map((vertice, index) => (
-        <NoteLine key={index} vertices={vertice} />
-      ))}
-    </StaveUI>
+    <>
+      <StaveUI>
+        <Gclef height={height} />
+        {vertices.map((vertice, index) => (
+          <NoteLine key={index} vertices={vertice} />
+        ))}
+        <Learn divider={divider} width={width} middle={middle} />
+      </StaveUI>
+    </>
   );
 }
 

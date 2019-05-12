@@ -1,18 +1,28 @@
-import { useState } from 'react';
-import { NoteInterface } from 'helpers/Notes';
+import { useState, useEffect } from 'react';
 
 interface UseNextNote {
-  notes: [];
+  notes: Array<{
+    name: string;
+    sound: string;
+    line: boolean;
+    positionX: number;
+    positionY: number;
+  }>;
 }
 
-function UseNextNote(props: NoteInterface):number {
+function UseNextNote(notes: any) {
   const [newRandomNumber, setRandomNumber] = useState(0);
-  let randomNumber = Math.floor(Math.random() * props.notes.length);
-  setRandomNumber(randomNumber);
 
-  return randomNumber !== newRandomNumber
-    ? newRandomNumber
-    : UseNextNote(props);
+  function getRandomNumber() {
+    let number = Math.floor(Math.random() * notes.length);
+    setRandomNumber(number);
+  }
+
+  useEffect(() => {
+    getRandomNumber();
+  });
+
+  return newRandomNumber;
 }
 
 export default UseNextNote;
