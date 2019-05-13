@@ -33,7 +33,7 @@ function Stave(props: any) {
         {vertices.map((vertice, index) => (
           <NoteLine key={index} vertices={vertice} />
         ))}
-        <Learn divider={divider} width={width} middle={middle} />
+        {width && <Learn divider={divider} width={width} middle={middle} />}
       </StaveUI>
     </>
   );

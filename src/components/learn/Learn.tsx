@@ -18,18 +18,24 @@ interface LearnProps {
 function Learn(props: LearnProps) {
   const [note, setNote] = useState({positionX: 0, positionY: 0, line: false})
   const { middle, divider, width } = props;
-  let number = 0;
-  let notes = getNotes(middle, divider, width);
+
+
  
   function getNote(){
-    number = UseNextNote(notes);
-    setNote(number)
+    console.log(middle, divider, width)
+  let notes = getNotes(middle, divider, width);
+   let number = UseNextNote(notes);
+    setNote(notes[number])
   }
 
-  useEffect(()=> {
-    getNote()
-  }, [])
+  // useEffect(()=> {
+  //   getNote()
+  // })
+  // if(width === 0) {
+  //   getNote()
+  // }
   // let note = notes[number];
+  console.log(middle, divider, width)
   console.log(note)
   return (
     <Note

@@ -11,18 +11,19 @@ interface UseNextNote {
 }
 
 function UseNextNote(notes: any) {
-  const [newRandomNumber, setRandomNumber] = useState(0);
+  // const [newRandomNumber, setRandomNumber] = useState(0);
 
-  function getRandomNumber() {
-    let number = Math.floor(Math.random() * notes.length);
-    setRandomNumber(number);
-  }
+  // function getRandomNumber() {
+  //   let number = Math.floor(Math.random() * notes.length);
+  //   setRandomNumber(number);
+  // }
 
-  useEffect(() => {
-    getRandomNumber();
-  });
+  // useEffect(() => {
+  //   getRandomNumber();
+  // });
+  let number = Math.floor(Math.random() * notes.length);
 
-  return newRandomNumber;
+  return number;
 }
 
 export default UseNextNote;
