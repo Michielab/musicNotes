@@ -7,7 +7,6 @@ import { getNotes } from 'helpers/Notes';
 import Note from 'components/notes/Note';
 
 /* Import hooks */
-import UseNextNote from 'components/hooks/UseNextNote';
 
 interface LearnProps {
   middle: number;
@@ -16,21 +15,22 @@ interface LearnProps {
 }
 
 function Learn(props: LearnProps) {
-  const [note, setNote] = useState({positionX: 0, positionY: 0, line: false})
+  const [number, setNumber] = useState(0);
+  const [note, setNote] = useState({ positionX: 0, positionY: 0, line: false });
   const { middle, divider, width } = props;
 
-
- 
-  function getNote(){
-  let notes = getNotes(middle, divider, width);
-  //  let number = UseNextNote(notes);
-    setNote(notes[1])
+  function getNote() {
+    let notes = getNotes(middle, divider, width);
+    if (number === 0) {
+      let newNumber = Math.floor(Math.random() * notes.length);
+      setNumber(newNumber);
+    }
+    setNote(notes[number]);
   }
 
-
-  useEffect(()=> {
-    getNote()
-  })
+  useEffect(() => {
+    getNote();
+  });
 
   return (
     <Note

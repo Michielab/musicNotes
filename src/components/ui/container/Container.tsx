@@ -36,14 +36,29 @@ const styles = (theme: Theme) =>
         webkitBoxShadow: '4px 7px 10px 3px rgba(0,0,0,0.75)',
         mozBoxShadow: '4px 7px 10px 3px rgba(0,0,0,0.75)',
         boxShadow: '4px 7px 10px 3px rgba(0,0,0,0.75)',
-        borderRadius: '5px'
+        borderRadius: '5px',
+        [theme.breakpoints.only('xs')]: {
+          width: '100%',
+        },
+        [theme.breakpoints.only('sm')]: {
+          width: '100%',
+        },
+        [theme.breakpoints.only('md')]: {
+          width: '100%',
+        },
       },
+    buttonBar: {
+      margin: '20px 0',
+      padding: '20px 0',
+      display: 'flex',
+      justifyContent: 'center'
+    }  
   });
 
 interface ContainerProps extends WithStyles {
   children?: ReactNode;
   paperProps?: PaperPropsMaterialUi;
-  type: 'root' | 'columnFlex' | 'stave';
+  type: 'root' | 'columnFlex' | 'stave' | 'buttonBar';
 }
 
 function Container(props: ContainerProps) {
