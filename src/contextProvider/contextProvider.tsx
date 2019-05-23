@@ -1,5 +1,11 @@
 import React, { useReducer, createContext, useContext, ReactNode } from 'react';
 
+/* Import actions */
+import { actionsInterface } from 'actions/Actions';
+
+/* Import Reducers */
+import { NotesHandler, NotesHandlerInterface } from 'reducers/Reducers';
+
 // create context object containing Provider and Consumer
 export const StateContext = createContext({});
 
@@ -15,50 +21,33 @@ So it becomes available in any component in your app component tree.
 
 */
 
-interface initialStateInterface {
+export interface initialStateInterface {
     notes: string[]
     number: number
 }
 
-const initialState:initialStateInterface = {
-    notes: [''],
+export const initialState:initialStateInterface = {
+    notes: ['','','','',''],
     number: 0
 }
 
-// const reducer = (state, action) => {
-//     switch (action.type) {
-//       case 'changeTheme':
-//         return {
-//           ...state,
-//           theme: action.newTheme
-//         };
-        
-//       default:
-//         return state;
-//     }
-//   };
 
+/*
 
+The main handler contains all the different handlers and is used in the main reducer. 
 
-
-
-export const Actions = {
-    RANDOM_NUMBER: 'RANDOM_NUMBER'
-}  
-
-interface actionsInterface {
-    RANDOM_NUMBER?: string;
-}
-
-export const NotesHandler = {
-    [Actions.RANDOM_NUMBER]: (state: initialStateInterface) => ({...state, number: Math.floor(Math.random() * state.notes.length)})
-}
-
+*/
 const mainHandler = {
     ...NotesHandler
 };
 
-function mainReducer(state = initialState, action: actionsInterface) {
+/*
+
+
+
+*/
+
+export function mainReducer(state = initialState, action: actionsInterface) {
     const handler = mainHandler[action.type]
     return handler ? handler(state, action) : state
 }
@@ -77,4 +66,4 @@ export const StateProvider = ({
   </StateContext.Provider>
 );
 
-export const useStateValue = () => useContext(StateContext);
+export const useStateValue:Function = () => useContext(StateContext);
