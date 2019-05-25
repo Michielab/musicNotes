@@ -12,6 +12,7 @@ import Container from './components/ui/container/Container';
 import RootRef from '@material-ui/core/RootRef';
 import Stave from 'components/stave/Stave';
 import UseResize from 'components/hooks/UseResize';
+import ButtonBar from 'components/ui/button/ButtonBar';
 
 import './App.css';
 
@@ -30,6 +31,7 @@ function App() {
               <Stave width={width} height={height} />
             </Container>
           </RootRef>
+          <ButtonBar />
         </Container>
       </Container>
     </StateProvider>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 /* Helper function to get notes  */
 import { getNotes } from 'helpers/Notes';
@@ -6,6 +6,7 @@ import { getNotes } from 'helpers/Notes';
 /* Import components  */
 import Note from 'components/notes/Note';
 import { Actions } from 'actions/Actions';
+
 /* Import hooks */
 import { useStateValue } from 'contextProvider/contextProvider';
 
@@ -16,35 +17,27 @@ interface LearnProps {
 }
 
 function Learn(props: LearnProps) {
-  // const [number, setNumber] = useState(0);
-  // const [note, setNote] = useState({ positionX: 0, positionY: 0, line: false });
-  // const { middle, divider, width } = props;
-  const [state, dispatch] = useStateValue()
+  const [{ number }, dispatch] = useStateValue();
+  const { middle, divider, width } = props;
 
-  // function getNote() {
-  //   let notes = getNotes(middle, divider, width);
-  //   if (number === 0) {
-  //     let newNumber = Math.floor(Math.random() * notes.length);
-  //     setNumber(newNumber);
-  //   }
-  //   setNote(notes[number]);
-  // }
+  /* Function to get the notes */
+  let notes = getNotes(middle, divider, width);
 
-  // useEffect(() => {
-  //   getNote();
-  // });
-  // dispatch({type: Actions.RANDOM_NUMBER})
-  console.log(state.number)
+  useEffect(() => {
+    dispatch({ type: Actions.RANDOM_NUMBER, notesLength: notes.length });
+  }, [dispatch, notes.length]);
+
+  /* Select current note based on the random number */
+  let note = notes[number];
+  console.log('note', note, number)
   return (
-    <div>
-      {state.number}
-    </div>
-    // <Note
-    //   cx={note.positionX}
-    //   cy={note.positionY}
-    //   line={note.line}
-    //   onClick={() => {}}
-    // />
+    note &&
+    <Note
+      cx={note.positionX}
+      cy={note.positionY}
+      line={note.line}
+      onClick={() => {}}
+    />
   );
 }
 

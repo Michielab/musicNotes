@@ -1,7 +1,7 @@
 import React, { useReducer, createContext, useContext, ReactNode } from 'react';
 
 /* Import actions */
-import { actionsInterface } from 'actions/Actions';
+import { GeneralAction } from 'actions/Actions';
 
 /* Import Reducers */
 import { NotesHandler, NotesHandlerInterface } from 'reducers/Reducers';
@@ -21,12 +21,12 @@ So it becomes available in any component in your app component tree.
 
 */
 
-export interface initialStateInterface {
+export interface InitialStateInterface {
     notes: string[]
     number: number
 }
 
-export const initialState:initialStateInterface = {
+export const initialState:InitialStateInterface = {
     notes: ['','','','',''],
     number: 0
 }
@@ -47,7 +47,7 @@ const mainHandler = {
 
 */
 
-export function mainReducer(state = initialState, action: actionsInterface) {
+export function mainReducer(state = initialState, action: GeneralAction) {
     const handler = mainHandler[action.type]
     return handler ? handler(state, action) : state
 }
@@ -58,7 +58,7 @@ export const StateProvider = ({
   children
 }: {
   reducer: any;
-  initialState: initialStateInterface;
+  initialState: InitialStateInterface;
   children: ReactNode;
 }) => (
   <StateContext.Provider value={useReducer(reducer, initialState)}>

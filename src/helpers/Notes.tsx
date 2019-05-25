@@ -20,7 +20,7 @@ export interface NoteInterface {
   [key: string]: { name: string; sound: string; line: boolean }[];
 }
 
-const notes: NoteInterface = {
+export const notes: NoteInterface = {
   fKeySimple: [
     {
       name: 'C',
