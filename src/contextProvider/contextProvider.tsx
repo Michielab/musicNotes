@@ -22,13 +22,13 @@ So it becomes available in any component in your app component tree.
 */
 
 export interface InitialStateInterface {
-    notes: string[]
     number: number
+    score: number
 }
 
 export const initialState:InitialStateInterface = {
-    notes: ['','','','',''],
-    number: 0
+    number: 0,
+    score: 0
 }
 
 

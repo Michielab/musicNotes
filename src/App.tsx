@@ -13,6 +13,7 @@ import RootRef from '@material-ui/core/RootRef';
 import Stave from 'components/stave/Stave';
 import UseResize from 'components/hooks/UseResize';
 import ButtonBar from 'components/ui/button/ButtonBar';
+import Scrore from 'components/ui/score/Score';
 
 import './App.css';
 
@@ -26,6 +27,7 @@ function App() {
           type="columnFlex"
           paperProps={{ square: true, elevation: 0 }}
         >
+          <Scrore />
           <RootRef rootRef={containerRef}>
             <Container type="stave">
               <Stave width={width} height={height} />

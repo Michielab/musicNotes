@@ -1,5 +1,5 @@
 /* Import actions */
-import { Actions, RandomNumberInterface, CheckAnswerInterface } from 'actions/Actions';
+import { Actions, RandomNumberInterface, CorrectAnswerInterface,  WrongAnswerInterface} from 'actions/Actions';
 
 /* Import interfaces */
 import { InitialStateInterface } from 'contextProvider/contextProvider';
@@ -20,10 +20,16 @@ export const NotesHandler = {
   ) => {
     return { ...state, number: Math.floor(Math.random() * action.notesLength) };
   },
-  [Actions.ANSWER_CORRECT]: (
+  [Actions.CORRECT_ANSWER]: (
     state: InitialStateInterface,
-    action: CheckAnswerInterface
+    action: CorrectAnswerInterface
   ) => {
-    return { ...state, answerCorrect: action.answer  };
+    return { ...state, score: state.score + 25  };
+  },
+  [Actions.WRONG_ANSWER]: (
+    state: InitialStateInterface,
+    action: WrongAnswerInterface
+  ) => {
+    return { ...state, score: state.score - 25  };
   }
 };

@@ -29,7 +29,7 @@ function Learn(props: LearnProps) {
 
   /* Select current note based on the random number */
   let note = notes[number];
-  console.log('note', note, number)
+
   return (
     note &&
     <Note

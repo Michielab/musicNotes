@@ -1,19 +1,23 @@
 export interface RandomNumberInterface {
-    type: string;
-    notesLength: number;
+  type: string;
+  notesLength: number;
 }
 
-export interface CheckAnswerInterface {
-    type: string;
-    answer: boolean;
+export interface CorrectAnswerInterface {
+  type: string;
 }
 
-
-export interface GeneralAction extends RandomNumberInterface, CheckAnswerInterface {
-
+export interface WrongAnswerInterface {
+  type: string;
 }
+
+export interface GeneralAction
+  extends RandomNumberInterface,
+    CorrectAnswerInterface,
+    WrongAnswerInterface {}
 
 export const Actions = {
-    RANDOM_NUMBER: 'RANDOM_NUMBER',
-    ANSWER_CORRECT: 'ANSWER_CORRECT'
-}  
+  RANDOM_NUMBER: 'RANDOM_NUMBER',
+  CORRECT_ANSWER: 'CORRECT_ANSWER',
+  WRONG_ANSWER: 'WRONG_ANSWER'
+};
