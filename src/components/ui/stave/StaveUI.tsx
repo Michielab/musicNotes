@@ -5,7 +5,8 @@ import { withStyles, WithStyles, createStyles, Theme } from '@material-ui/core';
 
 const styles = (theme: Theme) =>
   createStyles({
-    stave: { width: '100%', height: '100%', minHeight: '290px' }
+    stave: { width: '100%', height: '100%', minHeight: '290px'
+  }
   });
 
 interface StaveUIProps extends WithStyles<typeof styles> {

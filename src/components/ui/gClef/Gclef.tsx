@@ -8,7 +8,12 @@ import Gsleutel from 'images/Gsleutel.jpg'
 
 const styles = (theme: Theme) =>
   createStyles({
-    image: { width: 170 }
+    image: { width: 170 ,
+      [theme.breakpoints.only('xs')]: {
+        x: -40
+      }
+    },
+    
   });
 
 interface GclefProps extends WithStyles<typeof styles> {

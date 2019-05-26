@@ -12,5 +12,5 @@ export const theme = createMuiTheme({
     error: {
       main: '#ff0000'
     }
-  }
+  },
 });

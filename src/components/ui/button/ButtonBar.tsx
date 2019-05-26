@@ -14,7 +14,10 @@ import { useStateValue } from 'contextProvider/contextProvider';
 const styles = (theme: Theme) =>
   createStyles({
     container: {
-      marginTop: 30
+      marginTop: 30,
+      [theme.breakpoints.only('xs')]: {
+        marginTop: 10,
+      }
     },
     rippleCorrect: {
       color: `${theme.palette.secondary.main} !important`

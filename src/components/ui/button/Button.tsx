@@ -23,6 +23,8 @@ const styles = (theme: Theme) =>
       mozBoxShadow: '4px 7px 10px 3px rgba(0,0,0,0.75)',
       boxShadow: '4px 7px 10px 3px rgba(0,0,0,0.75)',
       margin: '0 10px',
+      height: `${theme.spacing.unit * 6.25}px`,
+      width: `${theme.spacing.unit * 6.25}px`,
       '&:hover': {
         backgroundColor: theme.palette.primary.main
       },
@@ -33,7 +35,14 @@ const styles = (theme: Theme) =>
         '&:hover': {
           backgroundColor: theme.palette.primary.main
         }
-      }
+      },
+      [theme.breakpoints.only('xs')]: {
+        height: `${theme.spacing.unit * 4.375}px`,
+        width: `${theme.spacing.unit * 4.375}px`,
+        margin: '0 5px',
+        minWidth: `${theme.spacing.unit * 4.375}px`,
+        padding: 0
+      },  
     },
   });
 

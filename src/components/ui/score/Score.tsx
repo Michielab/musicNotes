@@ -33,15 +33,28 @@ const styles = (theme: Theme) =>
       top: '150px',
       margin: '0 auto',
       textAlign: 'center',
-      fontSize: '1.5em'
+      fontSize: '1.5em',
+      [theme.breakpoints.only('xs')]: {
+        top: 25,
+        display: 'flex',
+        alignItems: 'center'
+      }
     },
     scoreTitle: {
-      color: theme.palette.primary.contrastText
+      color: theme.palette.primary.contrastText,
+      [theme.breakpoints.only('xs')]: {
+        marginRight: 10,
+        color: '#787eb1'
+      }
     },
     scores: {
       fontSize: '0.9em',
       marginTop: '10px',
-      color: theme.palette.primary.contrastText
+      color: theme.palette.primary.contrastText,
+      [theme.breakpoints.only('xs')]: {
+        marginTop: 0,
+        color: '#787eb1'
+      }
     },
     addPoints: {
       // color: '#2FD566',
@@ -72,16 +85,14 @@ function Score(props: ScoreProps) {
   const prevScore: any = usePrevious(score);
   const { classes } = props;
 
-   differentScores = score !== prevScore ? true : false
-  
-   function toggleFadeInt() {
-    setFadeIn(false)
-    differentScores = false
+  differentScores = score !== prevScore ? true : false;
+
+  function toggleFadeInt() {
+    setFadeIn(false);
+    differentScores = false;
   }
 
   /* hook to get the previous state */
-
-
 
   // useEffect(() => {
   //   score !== prevScore && toggleFadeInt();
@@ -96,13 +107,13 @@ function Score(props: ScoreProps) {
   return (
     <div className={classes.score}>
       <Typography variant="title" classes={{ root: classes.scoreTitle }}>
-        SCORE
+        Score
       </Typography>
       <Typography variant="title" classes={{ root: classes.scores }}>
         {score}
       </Typography>
       {/* {fadeIn && ( */}
-        {/* <Fade
+      {/* <Fade
           in={differentScores}
           timeout={{ enter: 500, exit: 1500 }}
           onEntered={toggleFadeInt}

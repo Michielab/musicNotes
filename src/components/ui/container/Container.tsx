@@ -27,7 +27,7 @@ const styles = (theme: Theme) =>
     },
     stave: {
         backgroundColor: 'white',
-        height: '40%',
+        height: '320px',
         width: '50%',
         minWidth: '320px',
         minHeight: ' 300px',
@@ -39,6 +39,8 @@ const styles = (theme: Theme) =>
         borderRadius: '5px',
         [theme.breakpoints.only('xs')]: {
           width: '100%',
+          minHeight: '250px',
+          height: '250px'
         },
         [theme.breakpoints.only('sm')]: {
           width: '100%',
