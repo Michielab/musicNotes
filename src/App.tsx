@@ -14,6 +14,7 @@ import Stave from 'components/stave/Stave';
 import UseResize from 'components/hooks/UseResize';
 import ButtonBar from 'components/ui/button/ButtonBar';
 import Scrore from 'components/ui/score/Score';
+import Sound from 'sounds/Sound';
 
 import './App.css';
 
@@ -21,6 +22,7 @@ function App() {
   const resize = UseResize();
   const { width, height, containerRef } = resize;
   return (
+    <>
     <StateProvider initialState={initialState} reducer={mainReducer}>
       <Container type="root" paperProps={{ square: true, elevation: 0 }}>
         <Container
@@ -37,6 +39,8 @@ function App() {
         </Container>
       </Container>
     </StateProvider>
+    <Sound/>
+    </>
   );
 }
 
