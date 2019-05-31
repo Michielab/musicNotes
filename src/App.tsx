@@ -23,23 +23,23 @@ function App() {
   const { width, height, containerRef } = resize;
   return (
     <>
-    <StateProvider initialState={initialState} reducer={mainReducer}>
-      <Container type="root" paperProps={{ square: true, elevation: 0 }}>
-        <Container
-          type="columnFlex"
-          paperProps={{ square: true, elevation: 0 }}
-        >
-          <Scrore />
-          <RootRef rootRef={containerRef}>
-            <Container type="stave">
-              <Stave width={width} height={height} />
-            </Container>
-          </RootRef>
-          <ButtonBar />
+      <StateProvider initialState={initialState} reducer={mainReducer}>
+        <Container type="root" paperProps={{ square: true, elevation: 0 }}>
+          <Container
+            type="columnFlex"
+            paperProps={{ square: true, elevation: 0 }}
+          >
+            <Scrore />
+            <RootRef rootRef={containerRef}>
+              <Container type="stave">
+                <Stave width={width} height={height} />
+              </Container>
+            </RootRef>
+            <ButtonBar />
+          </Container>
         </Container>
-      </Container>
-    </StateProvider>
-    <Sound/>
+        <Sound />
+      </StateProvider>
     </>
   );
 }

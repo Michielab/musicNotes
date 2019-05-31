@@ -101,7 +101,9 @@ function ButtonBar(props: ButtonBarProps) {
             <Button
               key={note.name + index}
               buttonProps={{
-                onClick: () => checkAnswer(note.name),
+                onClick: () => {checkAnswer(note.name);       dispatch({
+                  type: Actions.TOGGLE_PLAY
+                });},
                 TouchRippleProps: {
                   className:
                     notes['fKeySimple'][number].name === note.name

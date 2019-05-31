@@ -24,11 +24,13 @@ So it becomes available in any component in your app component tree.
 export interface InitialStateInterface {
     number: number
     score: number
+    play: boolean;
 }
 
 export const initialState:InitialStateInterface = {
     number: 0,
-    score: 0
+    score: 0,
+    play: false
 }
 
 

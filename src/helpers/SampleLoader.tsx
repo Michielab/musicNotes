@@ -1,5 +1,4 @@
-export const sampleLoader = (url: string, context: any, callback: Function) => {
-    console.log('context', context)
+export  function sampleLoader(url: string, context: any, callback: Function) {
     var request = new XMLHttpRequest();
     request.open('get', url, true);
     request.responseType = 'arraybuffer';

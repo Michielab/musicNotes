@@ -1,5 +1,11 @@
 /* Import actions */
-import { Actions, RandomNumberInterface, CorrectAnswerInterface,  WrongAnswerInterface} from 'actions/Actions';
+import {
+  Actions,
+  RandomNumberInterface,
+  CorrectAnswerInterface,
+  WrongAnswerInterface,
+  TogglePLayInterface
+} from 'actions/Actions';
 
 /* Import interfaces */
 import { InitialStateInterface } from 'contextProvider/contextProvider';
@@ -24,12 +30,18 @@ export const NotesHandler = {
     state: InitialStateInterface,
     action: CorrectAnswerInterface
   ) => {
-    return { ...state, score: state.score + 25  };
+    return { ...state, score: state.score + 25 };
   },
   [Actions.WRONG_ANSWER]: (
     state: InitialStateInterface,
     action: WrongAnswerInterface
   ) => {
-    return { ...state, score: state.score - 25  };
+    return { ...state, score: state.score - 25 };
+  },
+  [Actions.TOGGLE_PLAY]: (
+    state: InitialStateInterface,
+    action: TogglePLayInterface
+  ) => {
+    return { ...state, play: !state.play };
   }
 };
