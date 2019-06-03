@@ -12,7 +12,7 @@ import Container from './components/ui/container/Container';
 import RootRef from '@material-ui/core/RootRef';
 import Stave from 'components/stave/Stave';
 import UseResize from 'components/hooks/UseResize';
-import ButtonBar from 'components/ui/button/ButtonBar';
+import ButtonBar from 'components/buttonBar/ButtonBar';
 import Scrore from 'components/ui/score/Score';
 import Sound from 'sounds/Sound';
 

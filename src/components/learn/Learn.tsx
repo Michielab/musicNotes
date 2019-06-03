@@ -17,11 +17,11 @@ interface LearnProps {
 }
 
 function Learn(props: LearnProps) {
-  const [{ number }, dispatch] = useStateValue();
+  const [{ number, gameType }, dispatch] = useStateValue();
   const { middle, divider, width } = props;
 
   /* Function to get the notes */
-  let notes = getNotes(middle, divider, width);
+  let notes = getNotes(middle, divider, width, gameType);
 
   useEffect(() => {
     dispatch({ type: Actions.RANDOM_NUMBER, notesLength: notes.length });
@@ -31,13 +31,18 @@ function Learn(props: LearnProps) {
   let note = notes[number];
 
   return (
-    note &&
-    <Note
-      cx={note.positionX}
-      cy={note.positionY}
-      line={note.line}
-      onClick={() => {}}
-    />
+    note && (
+      <Note
+        cx={note.positionX}
+        cy={note.positionY}
+        line={note.line}
+        onClick={() =>
+          dispatch({
+            type: Actions.TOGGLE_PLAY
+          })
+        }
+      />
+    )
   );
 }
 

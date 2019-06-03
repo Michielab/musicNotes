@@ -34,7 +34,7 @@ interface ButtonBarProps extends WithStyles<typeof styles> {}
 
 function ButtonBar(props: ButtonBarProps) {
   const [buttonDisabled, toggleButtonDisabled] = useState(false);
-  const [{ number, score }, dispatch] = useStateValue();
+  const [{ number, score, gameType }, dispatch] = useStateValue();
   const { classes } = props;
 
   /* 
@@ -48,9 +48,10 @@ function ButtonBar(props: ButtonBarProps) {
     setTimeout(() => {
       dispatch({
         type: Actions.RANDOM_NUMBER,
-        notesLength: notes['fKeySimple'].length
+        notesLength: notes[gameType].length
       });
       dispatch({ type: Actions.CORRECT_ANSWER });
+      dispatch({type: Actions.TOGGLE_PLAY})
       toggleButtonDisabled(false);
     }, 750);
   }
@@ -84,7 +85,7 @@ function ButtonBar(props: ButtonBarProps) {
   - calls either correctAnswer or wrongAnswer
   */
   function checkAnswer(answer: string) {
-    notes['fKeySimple'][number].name === answer
+    notes[gameType][number].name === answer
       ? correctAnswer()
       : wrongAnswer();
   }
@@ -95,18 +96,16 @@ function ButtonBar(props: ButtonBarProps) {
         ' '
       )}
     >
-      {notes['fKeySimple'].map(
+      {notes[gameType].map(
         (note, index: number) =>
           index < 7 && (
             <Button
               key={note.name + index}
               buttonProps={{
-                onClick: () => {checkAnswer(note.name);       dispatch({
-                  type: Actions.TOGGLE_PLAY
-                });},
+                onClick: () => checkAnswer(note.name),
                 TouchRippleProps: {
                   className:
-                    notes['fKeySimple'][number].name === note.name
+                    notes[gameType][number].name === note.name
                       ? classes.rippleCorrect
                       : classes.rippleWrong
                 },
@@ -115,7 +114,6 @@ function ButtonBar(props: ButtonBarProps) {
               }}
             >
               {note.name}
-              {console.log(notes['fKeySimple'][number].name === note.name)}
             </Button>
           )
       )}

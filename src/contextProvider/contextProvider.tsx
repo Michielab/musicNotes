@@ -4,7 +4,7 @@ import React, { useReducer, createContext, useContext, ReactNode } from 'react';
 import { GeneralAction } from 'actions/Actions';
 
 /* Import Reducers */
-import { NotesHandler, NotesHandlerInterface } from 'reducers/Reducers';
+import { NotesHandler } from 'reducers/Reducers';
 
 // create context object containing Provider and Consumer
 export const StateContext = createContext({});
@@ -25,14 +25,15 @@ export interface InitialStateInterface {
     number: number
     score: number
     play: boolean;
+    gameType: 'fKeySimple';
 }
 
 export const initialState:InitialStateInterface = {
     number: 0,
     score: 0,
-    play: false
+    play: false,
+    gameType: 'fKeySimple'
 }
-
 
 /*
 
@@ -42,12 +43,6 @@ The main handler contains all the different handlers and is used in the main red
 const mainHandler = {
     ...NotesHandler
 };
-
-/*
-
-
-
-*/
 
 export function mainReducer(state = initialState, action: GeneralAction) {
     const handler = mainHandler[action.type]
