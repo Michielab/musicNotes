@@ -1,18 +1,14 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React from 'react';
 import {
   withStyles,
   WithStyles,
   createStyles,
   Theme,
-  Fade,
   Typography
 } from '@material-ui/core';
 
 /* Import state */
 import { useStateValue } from 'contextProvider/contextProvider';
-
-/* Import hooks */
-import usePrevious from 'components/hooks/UsePrevious';
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -114,29 +110,8 @@ const styles = (theme: Theme) =>
 interface ScoreProps extends WithStyles<typeof styles> {}
 
 function Score(props: ScoreProps) {
-  let [differentScores, setFadeIn] = useState(false);
   const [{ score }] = useStateValue();
-  const prevScore: any = usePrevious(score);
   const { classes } = props;
-
-  differentScores = score !== prevScore ? true : false;
-
-  function toggleFadeInt() {
-    setFadeIn(false);
-    differentScores = false;
-  }
-
-  /* hook to get the previous state */
-
-  // useEffect(() => {
-  //   score !== prevScore && toggleFadeInt();
-  // }, [score]);
-
-  const points = score - prevScore;
-  const add = points > 0 ? true : false;
-
-  //
-  console.log('score', score, prevScore);
 
   return (
     <div className={classes.score}>
@@ -146,22 +121,6 @@ function Score(props: ScoreProps) {
       <Typography variant="title" classes={{ root: classes.scores }}>
         {score}
       </Typography>
-      {/* {fadeIn && ( */}
-      {/* <Fade
-          in={differentScores}
-          timeout={{ enter: 500, exit: 1500 }}
-          onEntered={toggleFadeInt}
-          unmountOnExit={true}
-        >
-          <Typography
-            variant="body1"
-            className={add ? classes.addPoints : classes.deductPoints}
-          >
-            {add && '+'}
-            {points}
-          </Typography>
-        </Fade> */}
-      {/* )} */}
     </div>
   );
 }

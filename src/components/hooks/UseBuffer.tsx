@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 /* Import audioContext */
 import { sampleLoader } from 'helpers/SampleLoader';

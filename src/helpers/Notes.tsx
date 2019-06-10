@@ -1,22 +1,6 @@
-// import Clow from 'sounds/fKey/';
-// import Dlow from 'sounds/fKey/D-low.wav';
-// import Elow from 'sounds/fKey/E-low.wav';
-// import Flow from 'sounds/fKey/F-low.wav';
-// import Glow from 'sounds/fKey/G-low.wav';
-// import Alow from 'sounds/fKey/A-low.wav';
-// import Blow from 'sounds/fKey/B-low.wav';
-
-// import Chigh from 'sounds/fKey/C-high.wav';
-// import Dhigh from 'sounds/fKey/D-high.wav';
-// import Ehigh from 'sounds/fKey/E-high.wav';
-// import Fhigh from 'sounds/fKey/F-high.wav';
-// import Ghigh from 'sounds/fKey/G-high.wav';
-// import Ahigh from 'sounds/fKey/A-high.wav';
-
 export const startPointX: number = 160;
 
 export interface NoteInterface {
-  // fKeySimple: { name: string; sound: string; line: boolean }[];
   [key: string]: { name: string; sound: string; line: boolean }[];
 }
 
@@ -24,63 +8,63 @@ export const notes: NoteInterface = {
   fKeySimple: [
     {
       name: 'C',
-      sound: 'Clow',
+      sound: 'cLow',
       line: true
     },
     {
       name: 'D',
-      sound: 'Dlow',
+      sound: 'dLow',
       line: false
     },
     {
       name: 'E',
-      sound: 'Elow',
+      sound: 'eLow',
       line: false
     },
     {
       name: 'F',
-      sound: 'Flow',
+      sound: 'fLow',
       line: false
     },
     {
       name: 'G',
-      sound: 'Glow',
+      sound: 'gLow',
       line: false
     },
     {
       name: 'A',
-      sound: 'Alow',
+      sound: 'aLow',
       line: false
     },
-    { name: 'B', sound: 'Blow', line: false },
+    { name: 'B', sound: 'bLow', line: false },
     {
       name: 'C',
-      sound: 'Chigh',
+      sound: 'cHigh',
       line: false
     },
     {
       name: 'D',
-      sound: 'Dhigh',
+      sound: 'dHigh',
       line: false
     },
     {
       name: 'E',
-      sound: 'Ehigh',
+      sound: 'eHigh',
       line: false
     },
     {
       name: 'F',
-      sound: 'Fhigh',
+      sound: 'fHigh',
       line: false
     },
     {
       name: 'G',
-      sound: 'Ghigh',
+      sound: 'gHigh',
       line: false
     },
     {
       name: 'A',
-      sound: 'Ahigh',
+      sound: 'aHigh',
       line: true
     }
   ]
