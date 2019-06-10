@@ -44,9 +44,11 @@ const styles = (theme: Theme) =>
         },
         [theme.breakpoints.only('sm')]: {
           width: '100%',
+          height: '250px'
         },
         [theme.breakpoints.only('md')]: {
           width: '100%',
+          height: '250px'
         },
       },
     buttonBar: {

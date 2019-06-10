@@ -43,6 +43,13 @@ const styles = (theme: Theme) =>
         minWidth: `${theme.spacing.unit * 4.375}px`,
         padding: 0
       },  
+      [theme.breakpoints.only('sm')]: {
+        height: `${theme.spacing.unit * 4.375}px`,
+        width: `${theme.spacing.unit * 4.375}px`,
+        margin: '0 5px',
+        minWidth: `${theme.spacing.unit * 4.375}px`,
+        padding: 0
+      },  
     },
   });
 

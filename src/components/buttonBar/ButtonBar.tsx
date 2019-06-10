@@ -16,7 +16,10 @@ const styles = (theme: Theme) =>
     container: {
       marginTop: 30,
       [theme.breakpoints.only('xs')]: {
-        marginTop: 10,
+        marginTop: 40,
+        '@media (orientation: landscape)': {
+          marginTop: 10,
+        },
       }
     },
     rippleCorrect: {

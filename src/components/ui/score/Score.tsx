@@ -30,22 +30,47 @@ const styles = (theme: Theme) =>
       left: 0,
       right: 0,
       position: 'absolute',
-      top: '150px',
+      top: '20%',
       margin: '0 auto',
       textAlign: 'center',
       fontSize: '1.5em',
       [theme.breakpoints.only('xs')]: {
-        top: 25,
+        top: '15%',
         display: 'flex',
-        alignItems: 'center'
-      }
+        alignItems: 'center',
+        color: theme.palette.primary.contrastText,
+        '@media (orientation: landscape)': {
+          color: theme.palette.primary.main,
+          top: 40,
+        },
+      },
+      [theme.breakpoints.only('sm')]: {
+        top: '20%',
+        display: 'flex',
+        alignItems: 'center',
+        color: theme.palette.primary.contrastText,
+        '@media (orientation: landscape)': {
+          color: theme.palette.primary.main,
+          top: 40,
+        },
+      },
     },
     scoreTitle: {
       color: theme.palette.primary.contrastText,
       [theme.breakpoints.only('xs')]: {
         marginRight: 10,
-        color: '#787eb1'
-      }
+        color: theme.palette.primary.contrastText,
+        '@media (orientation: landscape)': {
+          color: theme.palette.primary.main
+        },
+      },
+      [theme.breakpoints.only('sm')]: {
+        marginRight: 10,
+        color: theme.palette.primary.contrastText,
+        '@media (orientation: landscape)': {
+          color: theme.palette.primary.main
+        },
+      },
     },
     scores: {
       fontSize: '0.9em',
@@ -53,8 +78,17 @@ const styles = (theme: Theme) =>
       color: theme.palette.primary.contrastText,
       [theme.breakpoints.only('xs')]: {
         marginTop: 0,
-        color: '#787eb1'
-      }
+        '@media (orientation: landscape)': {
+          color: theme.palette.primary.main
+        },
+      },
+      [theme.breakpoints.only('sm')]: {
+        marginTop: 0,
+        '@media (orientation: landscape)': {
+          color: theme.palette.primary.main
+        },
+      },
+      
     },
     addPoints: {
       // color: '#2FD566',
