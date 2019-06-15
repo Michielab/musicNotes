@@ -8,7 +8,7 @@ import Gsleutel from 'images/Gsleutel.jpg'
 
 const styles = (theme: Theme) =>
   createStyles({
-    image: { width: 170 ,
+    image: { width: '170px' ,
       [theme.breakpoints.only('xs')]: {
         x: -40
       }
@@ -24,11 +24,11 @@ function Gclef(props: GclefProps) {
   const { classes, height } = props;
   return (
     <image
-      href={Gsleutel}
+    xlinkHref={Gsleutel}
       x="0"
       y="0"
       className={classes.image}
-      style={{ height: height}}
+      style={{ height: '200px'}}
     />
   );
 }

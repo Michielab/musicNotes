@@ -30,8 +30,7 @@ function Stave(props: any) {
 
   return (
     <>
-      <StaveUI>
-        <Gclef height={height} />
+      <StaveUI height={height} width={width}>
         {vertices.map((vertice, index) => (
           <NoteLine key={index} vertices={vertice} />
         ))}
