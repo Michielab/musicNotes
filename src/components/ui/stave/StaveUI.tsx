@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react';
 
 /* Import MaterialUI components*/
 import { withStyles, WithStyles, createStyles, Theme } from '@material-ui/core';
-import Gclef from 'components/ui/gClef/Gclef';
 import Gsleutel from 'images/Gsleutel.jpg';
 const styles = (theme: Theme) =>
   createStyles({

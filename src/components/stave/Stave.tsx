@@ -3,7 +3,6 @@ import React from 'react';
 /* Import components */
 import NoteLine from 'components/notes/NoteLine';
 import StaveUI from 'components/ui/stave/StaveUI';
-import Gclef from 'components/ui/gClef/Gclef';
 import Learn from 'components/learn/Learn';
 
 function Stave(props: any) {
